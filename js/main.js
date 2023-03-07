@@ -5,28 +5,32 @@
 
 //function for creating DOM elements from objects
 function createObjectCard(object) {
+    const objectSlot = document.createElement('div');
+    objectSlot.classList.add('col-4');
+
     const objectCard = document.createElement('div');
-    objectCard.classList.add('card','col-4');
+    objectCard.classList.add('card');
 
     const objectImage = document.createElement('img');
-    objectImage.classList.add('card-img-top');
+    objectImage.classList.add('card-img-top','w-100');
     objectImage.src = `img/${object.photo}`;
 
-    const objectCardBody = document.createElement('card-body');
-    objectCardBody.classList.add('card','col-4');
+    const objectCardBody = document.createElement('div');
+    objectCardBody.classList.add('card-body','w-100');
 
     const objectName = document.createElement('h5');
-    objectName.classList.add('card-title');
+    objectName.classList.add('card-title','w-100');
     objectName.innerHTML = object.name;
 
     const objectRole = document.createElement('p');
-    objectRole.classList.add('card-text');
+    objectRole.classList.add('card-text','w-100');
     objectRole.innerHTML = object.role;
 
     objectCardBody.append(objectName,objectRole);
     objectCard.append(objectImage,objectCardBody);
+    objectSlot.append(objectCard);
 
-    return objectCard;
+    return objectSlot;
 }
 
 
